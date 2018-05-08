@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">码果村</string>
+    <string name="main">首页</string>
+    <string name="topic">话题</string>
+    <string name="voice">广播</string>
+    <string name="msg">消息</string>
+</resources>
