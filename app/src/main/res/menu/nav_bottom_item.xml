@@ -5,6 +5,7 @@
         android:enabled="true"
         app:showAsAction="ifRoom"
         android:title="@string/main"
+        android:checked="false"
         android:icon="@drawable/main_radio" />
     <item android:id="@+id/menu_topic"
         android:enabled="true"
