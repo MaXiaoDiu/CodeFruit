@@ -56,14 +56,14 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v4.view.ViewPager
+    <com.kotlindemo.View.MyMainViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fl_content"
+        android:id="@+id/fl_content_ral"
         android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/ral_bottom">
+        android:layout_above="@+id/nav_bottom">
 
-    </android.support.v4.view.ViewPager>
+    </com.kotlindemo.View.MyMainViewPager>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_bottom"

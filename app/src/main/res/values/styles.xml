@@ -3,5 +3,6 @@
     <style name="WelcomeStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@mipmap/welcome</item>
         <item name="android:windowNoTitle">true</item>
+
     </style>
 </resources>

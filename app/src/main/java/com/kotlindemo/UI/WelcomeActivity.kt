@@ -1,14 +1,10 @@
 package com.kotlindemo.UI
 
 import android.content.Intent
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.util.Log
 import android.widget.TextView
-import com.kotlindemo.MainActivity
+import com.kotlindemo.Activity.MainActivity
 import com.kotlindemo.R
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -51,7 +47,7 @@ class WelcomeActivity : AppCompatActivity() {
                     override fun onComplete() {
                         val intent = Intent()
                         //获取intent对象
-                        intent.setClass(baseContext,MainActivity::class.java)
+                        intent.setClass(baseContext, MainActivity::class.java)
                         // 获取class是使用::反射
                         startActivity(intent)
                         mSubscription?.cancel()//取消订阅，防止内存泄漏

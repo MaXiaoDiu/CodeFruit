@@ -27,11 +27,11 @@ class HomeFragment : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_home, null)
-        init(view)
+        init()
         return view
     }
 
-    private fun init(view : View) {
+    private fun init() {
 
     }
 }
