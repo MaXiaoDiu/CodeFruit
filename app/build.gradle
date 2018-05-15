@@ -33,5 +33,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'com.bigkoo:ConvenientBanner:2.0.8'
+    compile 'com.bigkoo:ConvenientBanner:2.1.1'
+    compile group: 'com.github.bumptech.glide', name: 'glide', version: '4.7.1'
+
 }

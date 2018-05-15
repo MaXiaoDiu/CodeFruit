@@ -23,7 +23,7 @@ class MyViewPager : ViewPager
     var imageviews=ArrayList<ImageView>()
     var mDisposable: Disposable? = null
 
-    private val images = intArrayOf(R.mipmap.pic_one, R.mipmap.pic_two, R.mipmap.pic_three)
+    private val images = intArrayOf(R.mipmap.pic_one, R.mipmap.pic_two, R.mipmap.pic_three,R.mipmap.pic_two)
     constructor(context: Context) : super(context){
         init()
     }
@@ -41,7 +41,7 @@ class MyViewPager : ViewPager
             imageviews.add(imageView)
         }
         this.adapter = MyPagerAdapter(imageviews,context)
-        mDisposable = Observable.interval(5, 5, TimeUnit.SECONDS)  // 5s的延迟，5s的循环时间
+        mDisposable = Observable.interval(3, 3, TimeUnit.SECONDS)  // 5s的延迟，5s的循环时间
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
