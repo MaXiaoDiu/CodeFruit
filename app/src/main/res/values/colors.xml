@@ -6,4 +6,5 @@
     <color name="grey">#ABABAB</color>
     <color name="sedark">#2c2c2c</color>
     <color name="transdark">#662c2c2c</color>
+    <color name="halftransdark">#F22c2c2c</color>
 </resources>
