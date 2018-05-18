@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.kotlindemo.R.id.ral_indicator
 import com.kotlindemo.View.MyViewPager.SelectItem
+import kotlinx.android.synthetic.main.myviewpager.view.*
 import java.nio.file.Files.size
 import java.nio.file.Files.size
 
@@ -30,6 +31,7 @@ class SliderViewPager : RelativeLayout, SelectItem {
     val img1 = R.drawable.val_white
     val img2 = R.drawable.val_dark
     val dotViewLists = ArrayList<ImageView>()
+    val titles = arrayOf("尼康单反","索尼单反-a99m2,4D对焦_快胜一筹","李易峰哦","索尼单反")
 
     constructor(context: Context) : super(context) {
         init()
@@ -65,8 +67,8 @@ class SliderViewPager : RelativeLayout, SelectItem {
             findViewById<LinearLayout>(R.id.lay_point).addView(imageView, params)
             dotViewLists.add(imageView)
         }
+        vt_title.text = titles[0]
         getViewPager().SetSelectItem(this)
-
     }
 
     fun getViewPager() : MyViewPager
@@ -78,8 +80,10 @@ class SliderViewPager : RelativeLayout, SelectItem {
 
         for (i in 0 until dotViewLists.size) {
             //选中的页面改变小圆点为选中状态，反之为未选中
+            vt_title.text = titles[(position-1)%dotViewLists.size]
             if ((position-1)%dotViewLists.size===i) {
                 (dotViewLists.get(i) as View).setBackgroundResource(img1)
+
             } else {
                 (dotViewLists.get(i) as View).setBackgroundResource(img2)
             }
