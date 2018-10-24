@@ -6,7 +6,6 @@ import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
-import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.Toolbar
 import android.view.View.OnClickListener
@@ -34,7 +33,7 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
 
         toolbar.inflateMenu(R.menu.tool_menu)
         toolbar.title= resources.getString(R.string.app_name)
-        toolbar.navigationIcon = resources.getDrawable(R.mipmap.more)
+        toolbar.navigationIcon = resources.getDrawable(R.mipmap.user)
         toolbar.setNavigationOnClickListener { drawer_layout.openDrawer(Gravity.START) }
         nav_view.itemIconTintList = null
         nav_bottom.itemIconTintList = null
@@ -61,6 +60,7 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
                 }
             }
         })
+
     }
 
     override fun onClick(v: View?) {
