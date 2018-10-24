@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit
 class WelcomeActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
@@ -24,7 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
     private fun StartThread() {
 
         var mSubscription: Subscription? = null // Subscription 对象，用于取消订阅关系，防止内存泄露
-        var count:Long = 4
+        var count:Long = 2
         Flowable.interval(0, 1, TimeUnit.SECONDS)//设置0延迟，每隔一秒发送一条数据
                 .onBackpressureBuffer()//加上背压策略
                 .take(count+1) //设置循环次数
