@@ -1,10 +1,10 @@
-package com.kotlindemo.UI
+package com.kotlindemo.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.kotlindemo.Activity.MainActivity
+import com.kotlindemo.activity.MainActivity
 import com.kotlindemo.R
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -19,7 +19,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
         //开启3S跳转到主页面线程
-        StartThread();
+        StartThread()
 
     }
 
@@ -27,7 +27,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         val timer: TextView = findViewById(R.id.vt_time) //这里的 timer 就是你要控制显示倒计时效果的 TextView
         var mSubscription: Subscription? = null // Subscription 对象，用于取消订阅关系，防止内存泄露
-        var count:Long = 4;
+        var count:Long = 4
         Flowable.interval(0, 1, TimeUnit.SECONDS)//设置0延迟，每隔一秒发送一条数据
                 .onBackpressureBuffer()//加上背压策略
                 .take(count+1) //设置循环次数
@@ -46,9 +46,7 @@ class WelcomeActivity : AppCompatActivity() {
                     }
                     override fun onComplete() {
                         val intent = Intent()
-                        //获取intent对象
                         intent.setClass(baseContext, MainActivity::class.java)
-                        // 获取class是使用::反射
                         startActivity(intent)
                         mSubscription?.cancel()//取消订阅，防止内存泄漏
                         finish()

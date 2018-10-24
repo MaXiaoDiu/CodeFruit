@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.kotlindemo.view.slider.SliderViewPager
-        android:id="@+id/mySliderViewPager"
+    <ImageView
+        android:id="@+id/img_vp_item"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
-
-    </com.kotlindemo.view.slider.SliderViewPager>
+        android:layout_height="match_parent" />
 </RelativeLayout>

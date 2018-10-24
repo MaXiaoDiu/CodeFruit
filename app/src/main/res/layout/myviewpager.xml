@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="355dp">
-        <com.kotlindemo.View.MyViewPager
+        <com.kotlindemo.view.slider.MyViewPager
             android:id="@+id/fl_content"
             android:layout_width="match_parent"
             android:layout_height="300dp"
@@ -15,7 +15,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true">
 
-        </com.kotlindemo.View.MyViewPager>
+        </com.kotlindemo.view.slider.MyViewPager>
         <RelativeLayout
             android:id="@+id/ral_indicator"
             android:orientation="horizontal"
@@ -23,12 +23,21 @@
             android:background="@color/transdark"
             android:layout_alignParentBottom="true"
             android:layout_height="30dp">
+        <TextView
+            android:id="@+id/vt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"/>
         <LinearLayout
             android:id="@+id/lay_point"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             android:layout_height="match_parent">
 
         </LinearLayout>

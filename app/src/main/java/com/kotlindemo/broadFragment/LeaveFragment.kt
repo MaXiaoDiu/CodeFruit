@@ -1,4 +1,4 @@
-package com.kotlindemo.BroadFragment
+package com.kotlindemo.broadFragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,10 +10,10 @@ import com.kotlindemo.R
 /**
  * Created by Cyy513 on 2018/5/10.
  */
-class FruitPicFragment : Fragment()
+class LeaveFragment : Fragment()
 {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_fruitpic,null)
+        val view = inflater.inflate(R.layout.fragment_leave,null)
         return view
     }
 }

@@ -1,25 +1,15 @@
-package com.kotlindemo.View
+package com.kotlindemo.view.slider
 
 import android.content.Context
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.*
-import android.view.Gravity.CENTER
 import android.widget.RelativeLayout
-import com.kotlindemo.Adapter.MainViewPagerAdapter
 
 import com.kotlindemo.R
-import com.kotlindemo.R.id.fl_content
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.kotlindemo.R.id.ral_indicator
-import com.kotlindemo.View.MyViewPager.SelectItem
+import com.kotlindemo.view.slider.MyViewPager.SelectItem
 import kotlinx.android.synthetic.main.myviewpager.view.*
-import java.nio.file.Files.size
-import java.nio.file.Files.size
-
-
-
 
 
 /**
@@ -28,27 +18,22 @@ import java.nio.file.Files.size
 
 class SliderViewPager : RelativeLayout, SelectItem {
 
-    val img1 = R.drawable.val_white
-    val img2 = R.drawable.val_dark
-    val dotViewLists = ArrayList<ImageView>()
-    val titles = arrayOf("尼康单反","索尼单反-a99m2,4D对焦_快胜一筹","李易峰哦","索尼单反")
+    private val img1 = R.drawable.val_white
+    private val img2 = R.drawable.val_dark
+    private val dotViewLists = ArrayList<ImageView>()
 
-    constructor(context: Context) : super(context) {
-        init()
-    }
+    var mTitles : Array<String>?=null
+    var mImages : IntArray? = null
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init()
-    }
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init()
-    }
 
-    private fun init() {
+    fun startSlider() {
 
         LayoutInflater.from(context).inflate(R.layout.myviewpager, this, true)
-        for (i in 0 until getViewPager().getimagesSize()) {
+        getViewPager().images = mImages
+        getViewPager().start()
+        for (i in 0 until mImages!!.size) {
             val imageView = ImageView(context)
             val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
             params.gravity = Gravity.CENTER
@@ -64,27 +49,31 @@ class SliderViewPager : RelativeLayout, SelectItem {
                 imageView.setBackgroundResource(img2)
             }
             //为LinearLayout添加ImageView
-            findViewById<LinearLayout>(R.id.lay_point).addView(imageView, params)
+            lay_point.addView(imageView, params)
             dotViewLists.add(imageView)
         }
-        vt_title.text = titles[0]
+        vt_title.text = mTitles!![0]
         getViewPager().SetSelectItem(this)
     }
 
     fun getViewPager() : MyViewPager
     {
-        return findViewById(R.id.fl_content)
+        return fl_content
     }
 
     override fun position(position: Int) {
 
         for (i in 0 until dotViewLists.size) {
+
             //选中的页面改变小圆点为选中状态，反之为未选中
-            vt_title.text = titles[(position-1)%dotViewLists.size]
-            if ((position-1)%dotViewLists.size===i) {
+            vt_title.text = mTitles!![(position) % dotViewLists.size]
+
+            if ((position-1) % dotViewLists.size===i) {
+
                 (dotViewLists.get(i) as View).setBackgroundResource(img1)
 
             } else {
+
                 (dotViewLists.get(i) as View).setBackgroundResource(img2)
             }
         }

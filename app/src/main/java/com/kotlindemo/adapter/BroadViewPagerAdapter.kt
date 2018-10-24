@@ -1,4 +1,4 @@
-package com.kotlindemo.Adapter
+package com.kotlindemo.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

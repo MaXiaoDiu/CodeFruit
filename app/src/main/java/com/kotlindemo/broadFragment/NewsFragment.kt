@@ -1,4 +1,4 @@
-package com.kotlindemo.BroadFragment
+package com.kotlindemo.broadFragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

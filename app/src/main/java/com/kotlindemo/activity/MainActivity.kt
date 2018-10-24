@@ -1,33 +1,23 @@
-package com.kotlindemo.Activity
+package com.kotlindemo.activity
 
-import android.app.ActionBar
-import android.graphics.drawable.ColorDrawable
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
 import android.view.View.OnClickListener
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.PopupWindow
-import com.kotlindemo.Adapter.MainViewPagerAdapter
-import com.kotlindemo.Fragment.BroadCastFragment
-import com.kotlindemo.Fragment.HomeFragment
-import com.kotlindemo.Fragment.TopicFragment
+import com.kotlindemo.adapter.MainViewPagerAdapter
+import com.kotlindemo.fragment.BroadCastFragment
+import com.kotlindemo.fragment.HomeFragment
+import com.kotlindemo.fragment.TopicFragment
 import com.kotlindemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 import kotlinx.android.synthetic.main.toolbar_layout.view.*
-import android.graphics.drawable.BitmapDrawable
-import android.view.MotionEvent
-import android.view.View.OnTouchListener
 import kotlinx.android.synthetic.main.edit_popview.view.*
+import android.view.*
 
 
 class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnNavigationItemSelectedListener{
@@ -39,7 +29,6 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
-
     }
 
     private fun init() {

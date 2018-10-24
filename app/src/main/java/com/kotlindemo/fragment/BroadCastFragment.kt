@@ -1,28 +1,19 @@
-package com.kotlindemo.Fragment
+package com.kotlindemo.fragment
 
-import android.content.Context
-import android.content.res.Resources
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kotlindemo.Adapter.BroadViewPagerAdapter
-import com.kotlindemo.BroadFragment.CommunityFragment
-import com.kotlindemo.BroadFragment.FruitPicFragment
-import com.kotlindemo.BroadFragment.LeaveFragment
-import com.kotlindemo.BroadFragment.NewsFragment
+import com.kotlindemo.adapter.BroadViewPagerAdapter
+import com.kotlindemo.broadFragment.CommunityFragment
+import com.kotlindemo.broadFragment.FruitPicFragment
+import com.kotlindemo.broadFragment.LeaveFragment
+import com.kotlindemo.broadFragment.NewsFragment
 import com.kotlindemo.R
 import kotlinx.android.synthetic.main.fragment_broadcast.*
 import kotlinx.android.synthetic.main.fragment_broadcast.view.*
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.view.ViewTreeObserver
-import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import java.lang.reflect.Field
-import android.util.TypedValue
-import java.io.File
 
 
 /**
