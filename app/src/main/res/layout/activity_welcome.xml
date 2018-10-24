@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,14 +9,6 @@
     tools:context=".ui.WelcomeActivity">
 
 
-    <TextView
-        android:id="@+id/vt_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:padding="20dp"
-        app:layout_constraintRight_toRightOf="@+id/root_ral"
-        tools:layout_editor_absoluteX="356dp"
-        tools:layout_editor_absoluteY="16dp" />
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>
