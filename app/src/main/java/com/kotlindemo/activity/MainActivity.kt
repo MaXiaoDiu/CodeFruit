@@ -1,13 +1,15 @@
 package com.kotlindemo.activity
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.Toolbar
 import android.view.View.OnClickListener
-import android.widget.PopupWindow
 import com.kotlindemo.adapter.MainViewPagerAdapter
 import com.kotlindemo.fragment.BroadCastFragment
 import com.kotlindemo.fragment.HomeFragment
@@ -15,15 +17,12 @@ import com.kotlindemo.fragment.TopicFragment
 import com.kotlindemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
-import kotlinx.android.synthetic.main.toolbar_layout.view.*
-import kotlinx.android.synthetic.main.edit_popview.view.*
 import android.view.*
 
 
-class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnNavigationItemSelectedListener{
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
 
-
-    private var mPopWindow : PopupWindow? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +32,13 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
 
     private fun init() {
 
+        toolbar.inflateMenu(R.menu.tool_menu)
+        toolbar.title= resources.getString(R.string.app_name)
+        toolbar.navigationIcon = resources.getDrawable(R.mipmap.more)
+        toolbar.setNavigationOnClickListener { drawer_layout.openDrawer(Gravity.START) }
         nav_view.itemIconTintList = null
         nav_bottom.itemIconTintList = null
         nav_bottom.setOnNavigationItemSelectedListener(this)
-        toolbar.ral_more.setOnClickListener(this)
-        toolbar.img_edit.setOnClickListener(this)
         val fragmentList = ArrayList<Fragment>()
         fragmentList.add(HomeFragment())
         fragmentList.add(TopicFragment())
@@ -66,12 +67,7 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
 
         when(v?.id)
         {
-            R.id.ral_more ->
-                drawer_layout.openDrawer(GravityCompat.START)
-            R.id.img_edit ->
-                ShowPopWindow()
-            R.id.close_img->
-                mPopWindow!!.dismiss()
+
         }
     }
 
@@ -86,18 +82,19 @@ class MainActivity : FragmentActivity(),OnClickListener,BottomNavigationView.OnN
             R.id.menu_voice ->
                 fl_content_ral.currentItem = 2
         }
-        return true
 
+        return true
     }
 
-    fun ShowPopWindow()
-    {
-        var mPopWindowView : View = LayoutInflater.from(this).inflate(R.layout.edit_popview, null)
-        mPopWindowView.close_img.setOnClickListener(this)
-        mPopWindow = PopupWindow(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        mPopWindow!!.contentView = mPopWindowView
-        mPopWindow!!.setFocusable(true)
-        mPopWindow!!.setOutsideTouchable(true)
-        mPopWindow!!.showAsDropDown(img_edit,0,0)
+
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
+
+        when(item?.itemId)
+        {
+
+
+        }
+        return true
     }
 }
+
